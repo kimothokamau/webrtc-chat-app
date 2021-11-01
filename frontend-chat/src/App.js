@@ -17,10 +17,14 @@ const App = () => {
   const updateChannel = chn => {
     setChannel(chn);
   };
-  return ( 
+  return (
+    <ConnectionContext.Provider value={{ connection, updateConnection }}>
+      <ChannelContext.Provider value={{ channel, updateChannel }}>
+        <Container />
+      </ChannelContext.Provider>
+    </ConnectionContext.Provider>
   );
 };
 export const ConnectionConsumer = ConnectionContext.Consumer
 export const ChannelConsumer = ChannelContext.Consumer
 export default App;
-
